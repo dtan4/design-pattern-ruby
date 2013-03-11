@@ -41,3 +41,26 @@ class StringDisplayImpl < DisplayImpl
     puts "+"
   end
 end
+
+
+class TextFileDisplayImpl
+  def initialize(filename)
+    @filename = filename
+  end
+
+  def rawOpen
+    @f = open(@filename)
+    puts "----- #{@filename} -----"
+  end
+
+  def rawPrint
+    @f.each_line do |line|
+      puts line
+    end
+  end
+
+  def rawClose
+    puts "-------------------------"
+    @f.close
+  end
+end

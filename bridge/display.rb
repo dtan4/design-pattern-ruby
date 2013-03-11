@@ -24,6 +24,7 @@ class Display
   end
 end
 
+
 class CountDisplay < Display
   def initialize(impl)
     super(impl)
@@ -37,5 +38,17 @@ class CountDisplay < Display
     end
 
     close
+  end
+end
+
+
+class RandomCountDisplay < CountDisplay
+  def initialize(impl)
+    super(impl)
+  end
+
+  def random_display(times)
+    count = rand(times)
+    multi_display(count)
   end
 end
