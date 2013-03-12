@@ -56,13 +56,10 @@ class DirectoryEntry < Entry
   end
 
   def get_size
-    size = 0
+    visitor = SizeVisitor.new
+    visitor.visit(self)
 
-    @directory.each do |entry|
-      size += entry.get_size
-    end
-
-    return size
+    return visitor.get_size
   end
 
   def add(entry)
