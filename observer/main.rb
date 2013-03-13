@@ -4,7 +4,7 @@
 require_relative 'observer'
 require_relative 'number_generator'
 
-generator = RandomNumberGenerator.new
+generator = IncrementalNumberGenerator.new(10, 50, 5)
 observer1 = DigitObserver.new
 observer2 = GraphObserver.new
 generator.add_observer(observer1)
